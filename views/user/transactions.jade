@@ -1,0 +1,36 @@
+extends ../layout
+
+block content
+    .clear
+    .container
+        h3 Transactions
+        .panel.panel-default
+            .panel-heading 
+                span Name: #{user_v.first_name} #{user_v.last_name}
+            .panel-body
+                div
+                    table#minimalist.table
+                        thead
+                            th #
+                            th Trans Id
+                            th Type
+                            th Amount
+                            th Date
+                            th Parking Area
+                        tbody
+                            if ('undefined' !== typeof transactions)
+                              each val,i in transactions
+                                tr
+                                    td=i+1
+                                    td
+                                        if(!val.parking_area_id) 
+                                            span Transfer 
+                                        a(href="/account/transact/#{val.id}") TRANS-#{val.id}
+                                    td=val.type
+                                    td R #{val.amount.toFixed(2)}
+                                    td=val.date
+                                    td=val.name
+                            else
+                                tr
+                                    td(colspan="5", style="text-align: center")
+                                        "No transactions found"

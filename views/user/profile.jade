@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+	.clear
+	.container
+		-if('undefined' !== typeof(error))
+			.alert-message.error
+				a.close(href="#") ×
+				p #{error}
+		-if('undefined' !== typeof(message))
+			.alert-message.error
+				a.close(href="#") ×
+				p #{message}
+		div.panel.panel-default
+            div.panel-heading
+                panel-title User Profile
+            div.panel-body	
+				.jumbotron
+					p
+						label(for="user_viewed[first_name]") First Name:
+					p
+						label(for="user_viewed[last_name]") Last Name:
+					p
+						label(for="user_viewed[username]") Username:
+					p
+						label(for="user_viewed[email]") Email:
+					p
+						label(for="user_viewed[password]") Password:
+					p
+						label(for="user_viewed[repeat_password]") Repeat Password:
+					p
+						a(href="users/edit/", class="btn.btn-lg.btn-primary.btn-block", style="width: 150px") Edit Profile

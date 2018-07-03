@@ -1,0 +1,34 @@
+extends ../layout
+    
+block content
+    .clearfix
+    .container
+        .panel.panel-default
+            .panel-heading 
+                span(class="glyphicon glyphicon-user") CompleteForm
+            .panel-body
+
+                -if ('undefined' === typeof message)
+                    div(class="alert alert-info")
+                        strong
+                            =message
+                -if ('undefined' === typeof error)
+                    div(class="alert alert-danger")
+                        strong
+                            =error
+
+                form.form-horizontal(action="/reset", role="form", method="POST")
+                    input(type='hidden', name='_csrf', value=token)
+                    input(type='hidden', name='_rstoken', value=reset_token)
+                    .row
+                        .control-group.col-lg-3
+                            label(for="password", class="control-label") Password:
+                            input.form-control(type="password" placeholder="Password", required="required", autofocus="autofocus", name="password")
+                    .row
+                        .control-group.col-lg-3
+                            label(for="confirm", class="control-label") Confirm Password:
+                            input.form-control(type="password", placeholder="Confirm Password", required="required", name="confirm")
+                    br
+                    .row
+                        .control-group.col-lg-3
+                            button.btn.btn-default.btn-primary.btn-block(type="submit") Reset

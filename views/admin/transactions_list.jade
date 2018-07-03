@@ -1,0 +1,34 @@
+extends ../layout
+
+block content
+    .clear
+    .container
+        h3 Transactions
+        .panel.panel-default
+            .panel-heading 
+                span All Transactions
+            .panel-body
+                div
+                    table#minimalist.table
+                        thead
+                            th #
+                            th Trans Id
+                            th Type
+                            th Amount
+                            th Date
+                            th User
+                        tbody
+                            if ('undefined' !== typeof transactions)
+                              each val,i in transactions
+                                tr
+                                    td=i+1
+                                    td TRANS #{val.tid}
+                                    td=val.type
+                                    td R #{val.amount.toFixed(2)}
+                                    td=val.date
+                                    td
+                                        #{val.first_name} #{val.last_name}
+                            else
+                                tr
+                                    td(colspan="5", style="text-align: center")
+                                        "No transactions found"

@@ -1,0 +1,47 @@
+doctype html
+//if lt IE 7
+  html.no-js.ie6.oldie(lang='en')
+//if IE 7
+  html.no-js.ie7.oldie(lang='en')
+//if IE 8
+  html.no-js.ie8.oldie(lang='en') 
+//[if gt IE 8]><!
+html.no-js(lang='en')
+    //<![end if]
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        meta(http-equiv="Content-Type", content="text/html;charset=utf-8")
+        meta(name="description", content="SmartPark : The aim is to create hassle free, device independant parking solution.")
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        link(href='/stylesheets/bootstrap.min.css', rel='stylesheet', media='screen')
+        link(href='/stylesheets/bootstrap-theme.min.css', rel='stylesheet', media='screen')
+        link(href='/stylesheets/normalize.css', rel='stylesheet', media='screen')
+        script(src='http://code.jquery.com/jquery.js')
+        script(src='/javascripts/bootstrap.min.js')
+        block head
+    body
+        header
+            nav.top-header
+                .navbar-inner
+                    .container
+                        .navbar-header(style="height: 50px;")
+                            a.logo.navbar-brand(href="/") SmartPark
+                        div.pull-right
+                            img(src="/images/header-logo.png")
+            nav
+                .navbar-inner
+                    include ./partials/inner_menu.jade
+        section
+            .container
+                br 
+                block content
+            hr.featurette-divider
+        footer
+            .container
+                p.pull-right
+                    a(href="#") Back to top
+                p © Little Buddha Digital · 
+                    a(href="#") Privacy · 
+                    a(href="#") Terms   
+        block footer

@@ -1,0 +1,34 @@
+extends ../layout.jade
+
+block content
+    .panel.panel-default
+        .panel-heading Companies
+        .panel-body
+            input(type="hidden", name="_method", value="delete")
+            div
+                p
+                    a(href="/admin/companies/add", class="btn btn-default", style="width: 150px") Create Company
+            table#minimalist.table
+                thead
+                    th #
+                    th Company
+                    th Registration Number
+                    th Admin
+                    th 
+                tbody
+                    if ('undefined' !== typeof companies)
+                        each val in companies
+                            tr
+                                td=val.id
+                                td
+                                    a(href="/admin/companies/#{val.id}") #{val.company}
+                                td=val.registration_number
+                                td=val.admin
+                                td 
+                                    div.actions
+                                        a.delact.btn.btn-default(href="/admin/companies/del/#{val.id}") Delete
+                    else
+                        tr
+                            td(colspan="5", style="text-align: center")
+                                "No companies found"
+block footer

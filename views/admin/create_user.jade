@@ -1,0 +1,63 @@
+extends ../layout
+
+block content
+    .container
+        if ('undefined' !== typeof errors)
+         div#flash(class="alert in alert-block fade alert-error")
+            strong
+                =errors
+        div.panel.panel-default
+            div.panel-heading
+                panel-title Create New User
+            div.panel-body
+                div.form-group
+                    form(role="form", method="post", class="form-signup form-horizontal")
+                        input(type='hidden', name='_csrf', value=token)
+                        .row
+                            .control-group.col-lg-3
+                                label(for="user[first_name]", class="control-label") First Name:
+                                .controls
+                                    input.form-control(name="user[first_name]", type="text" placeholder="First Name", required, data-required-msg='First name is required', autofocus=autofocus)
+                        .row
+                            .control-group.col-lg-3
+                                label(for="user[last_name]", class="control-label") Last Name:
+                                .controls    
+                                    input.form-control(name="user[last_name]", type="text", placeholder="Last Name", required, data-required-msg='Last name is required')
+                        .row
+                            .control-group.col-lg-3
+                                label(for="user[username]", class="control-label") Username:
+                                .controls
+                                    input.form-control(name="user[username]", type="text" placeholder="Username", required, data-required-msg='Username is required')
+                        .row
+                            .control-group.col-lg-3
+                                label(for="user[email]", class="control-label") Email:
+                                .controls
+                                    input.form-control(name="user[email]", type="email" placeholder="Email address", required, data-required-msg='Email is required')
+                        .row
+                            .control-group.col-lg-3
+                                label(for="user[cellphone]", class="control-label") Cellphone:
+                                .controls
+                                    input.form-control(name="user[cellphone]", type="text" placeholder="Cellphone")
+                        .row
+                            .control-group.col-lg-3
+                                label(for="user[password]",  class="control-label") Password:
+                                .controls
+                                    input.form-control(name="user[password]", type="password", placeholder="Password", required, data-required-msg='Password is required')
+                        .row
+                            .control-group.col-lg-3
+                                label(for="user[repeat_password]",  class="control-label") Repeat Password:
+                                .controls
+                                    input.form-control(name="user[repeat_password]", type="password", placeholder="Repeat Password", required, data-required-msg='Please repeat password is required')
+                        .row
+                            .control-group.col-lg-3
+                                label(for="user[group]",  class="control-label") User Group
+                                .controls
+                                    select(class="form-control",name="user[group]", required="required")
+                                        each grp in groups
+                                            option(value="#{grp.id}") #{grp.group}
+
+                        .row
+                            .control-group.col-lg-3
+                                .controls
+                                    hr    
+                                    button.btn.btn-m.btn-primary.btn-block(type="submit", style="width: 150px") Save User

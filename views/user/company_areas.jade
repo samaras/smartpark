@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+	.clear
+	.container
+		h2.form-signin-heading Please Register
+		p
+			label(for="user[first_name]") First Name:
+		p
+			label(for="user[last_name]") Last Name:
+		p
+			label(for="user[username]") Username:
+		p
+			label(for="user[email]") Email:
+		p
+			label(for="user[password]") Password:
+		p
+			label(for="user[repeat_password]") Repeat Password:
+		a.btn.btn-lg.btn-primary.btn-block(href="user/edit/" + user[id], style="width: 150px") Edit Profile

@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+    .container
+        .panel.panel-default
+            .panel-heading 
+                Parking Areas Transactions
+            .panel-body
+                div 
+                    span #{area.name}, #{area.city}
+                div   
+                    table#minimalist.table
+                        thead
+                            th #
+                            th Trans
+                            th Amount
+                            th Type
+                            th Date
+                        tbody
+                            if (transactions.length > 0)
+                              each val,i in transactions
+                                tr
+                                    td=i+1
+                                    td
+                                        a(href="/account/transact/#{val.id}") View
+                                    td=val.amount.toFixed(2)
+                                    td=val.type
+                                    td=val.date
+                            else
+                                tr
+                                    td(colspan="5", style="text-align: center")
+                                        "No transactions found"

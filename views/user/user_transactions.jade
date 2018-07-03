@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+    .clear
+    .container
+        h2.form-signin-heading My Transactions
+        div 
+            span Name: #{user.first_name} #{user.last_name}
+        div
+            table#minimalist
+                thead
+                    th Trans Id
+                    th Type
+                    th Amount
+                    th Date
+                tbody
+                    if ('undefined' !== typeof transactions)
+                      each val in transactions
+                        tr
+                            td
+                                a(href="/account/transact/#{val.id}") TRANS#{val.id}
+                            td=val.type
+                            td R #{val.amount.toFixed(2)}
+                            td=val.date
+                    else
+                        tr
+                            td(colspan="5", style="text-align: center")
+                                "No transactions found"

@@ -1,0 +1,15 @@
+extends layout
+
+block content
+
+    if('undefined' !== typeof error)
+     div(class="alert alert-danger")
+        strong
+            =error
+
+    if('undefined' !== typeof message)
+     div(class="alert alert-info")
+        strong  
+            =message
+    h1= title
+    p Welcome to SmartPark

@@ -1,0 +1,32 @@
+extends ../layout
+    
+block content
+    .clearfix
+    .container
+        .jumbotron
+            -if ('undefined' !== typeof message)
+             div(class="alert alert-error")
+                strong
+                    =message
+            form.form-horizontal(role="form", method="POST")
+                h2.heading Please sign in
+                input(type='hidden', name='_csrf', value=token)
+                .row
+                    .control-group.col-lg-3
+                        label(for="user[email]", class="control-label") Username:
+                        input.form-control(type="text" placeholder="Username", required="required", autofocus="autofocus", name="username")
+                .row
+                    .control-group.col-lg-3
+                        label(for="user[email]", class="control-label") Password:
+                        input.form-control(type="password", placeholder="Password", required="required", name="password")
+                .row
+                    .control-group.col-lg-3
+                        label.checkbox Remember Me
+                            input.form-control(type="checkbox", value="remember-me")
+                .row
+                    .control-group.col-lg-3
+                        button.btn.btn-m.btn-primary.btn-block(type="submit") Sign in
+                .row
+                    .control-group.col-lg-3
+                        a(href="/forgot") Forgot Password
+

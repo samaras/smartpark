@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+    .clear
+    .container
+        p &nbsp;
+        div
+            p Name: #{user.first_name}  #{user.last_name}
+            form(role="form", method="post", class="form-signin form-horizontal")
+                h2.form-signin-heading Choose Method
+                input(type='hidden', name='_csrf', value=token)
+                .col-lg-6                        
+                    .control-group
+                        .controls
+                            .row(style="margin-bottom: 5px;")
+                                .input-group
+                                    span.input-group-addon
+                                        input(name="credit[payment_type]", type="radio", value="creditcard")
+                                    input(type="text", class="form-control", value="Credit Card")
+                            .row(style="margin-bottom: 5px;")
+                                .input-group
+                                    span.input-group-addon
+                                        input(name="credit[payment_type]", type="radio", value="debitcard")
+                                    input(type="text", class="form-control", value="Debit Card")
+                            .row(style="margin-bottom: 5px;")
+                                .input-group
+                                    span.input-group-addon
+                                        input(name="credit[payment_type]", type="radio", value="eft")
+                                    input(type="text", class="form-control", value="EFT")
+                            .row
+                                hr    
+                                button.btn.btn-m.btn-primary(type="submit", style="width: 150px") Proceed                

@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+    .container
+        div.panel.panel-default
+            div.panel-heading
+                panel-title Vendor: #{vendor_name} Parking Areas
+            div.panel-body
+                table#minimalist.table
+                    thead
+                        th #
+                        th Name
+                        th City
+                        th Longitude
+                        th Latitude
+                        th 
+                    tbody
+                        if ('undefined' !== typeof vendor_areas)
+                            each val, i in vendor_areas
+                                tr
+                                    td=i+1
+                                    td=val.name
+                                    td=val.city
+                                    td=val.longitude
+                                    td=val.latitude
+                                    td 
+                                        span.action
+                                            a.delact.btn.btn-default(href="/admin/manageareas/del/#{val.id}") Delete
+                        else
+                            tr
+                                td(colspan="5", style="text-align: center")
+                                    "No vendors found"
+block footer

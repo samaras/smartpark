@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+    .container
+        .panel.panel-default
+            .panel-heading 
+                Parking Areas Visited
+            .panel-body
+                div 
+                    span Name: #{user.first_name} #{user.last_name}
+                div   
+                    table#minimalist.table
+                        thead
+                            th #
+                            th Parking Area
+                            th City/Town
+                            th Area Transactions
+                        tbody
+                            if ('undefined' !== typeof areas)
+                              each val,i in areas
+                                tr
+                                    td=i+1
+                                    td=val.name
+                                    td=val.city
+                                    td
+                                        a(href="/account/transactions/area/#{val.id}") View
+                            else
+                                tr
+                                    td(colspan="5", style="text-align: center")
+                                        "No areas parked found"

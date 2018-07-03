@@ -1,0 +1,38 @@
+extends ../layout.jade
+
+block content
+    .panel.panel-default
+        .panel-heading 
+            Parking Vendors
+        .panel-body
+            div
+                Add 
+            input(type="hidden", name="_method", value="delete")
+            table#minimalist.table
+                thead
+                    th #
+                    th Vendor
+                    th API Access
+                    th API Client Login
+                    th API Client Secret
+                    th URI
+                    th 
+                tbody
+                    if ('undefined' !== typeof vendors)
+                        each val, i in vendors
+                            tr
+                                td=i+1
+                                td
+                                    a(href="/admin/vendors/#{val.id}") #{val.vendor}
+                                td=val.api_access
+                                td=val.client_login
+                                td=val.client_secret
+                                td=val.host
+                                td 
+                                    span.action
+                                        a.delact.btn.btn-default(href="/admin/vendors/del/#{val.id}") Delete
+                    else
+                        tr
+                            td(colspan="5", style="text-align: center")
+                                "No vendors found"
+block footer

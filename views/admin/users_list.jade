@@ -1,0 +1,48 @@
+extends ../layout.jade
+
+block content
+    .panel.panel-default
+        .panel-heading 
+            h4 Users
+        .panel-body
+            div
+                a(href="/admin/users/create", class="btn btn-default") Create New User
+            input(type="hidden", name="_method", value="delete")
+            table#minimalist.table
+                thead
+                    th #
+                    th First Name
+                    th Last Name
+                    th Email
+                    th Username
+                    th Cellphone
+                    th Group
+                    th Company
+                    th Last Login
+                    th Date Joined
+                    th 
+                tbody
+                    if ('undefined' !== typeof users)
+                        each val in users
+                            tr
+                                td #{val.id}
+                                td 
+                                    a(href="/admin/users/#{val.id}") #{val.first_name}
+                                td=val.last_name
+                                td=val.email
+                                td=val.username
+                                td=val.cellphone
+                                td=val.group
+                                td
+                                    if(val.company_id) 
+                                        a(href="/admin/users/company/#{val.company_id}") #{val.company}
+                                td(style="overflow: hidden") #{val.last_login}
+                                td(style="overflow: hidden") #{val.date_joined}
+                                td
+                                    span.action
+                                        a.delact.btn.btn-default(href="/admin/users/del/#{val.id}") Delete
+                    else
+                        tr
+                            td(colspan="5", style="text-align: center")
+                                "No users found"
+block footer

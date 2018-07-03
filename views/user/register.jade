@@ -1,0 +1,92 @@
+extends ../layout
+
+block content
+    .container
+        if (errors.length > 0)
+            div(class="alert alert-danger")
+                strong
+                    =errors
+        h3.form-signin-heading Please Register
+        .panel.panel-default
+            .panel-body
+                div.form-group
+                    form(role="form", method="post", class="form-signin form-horizontal")
+                        input(type='hidden', name='_csrf', value=token)
+                        .row
+                            .control-group.col-lg-3
+                                label(for="user[first_name]", class="control-label") First Name:
+                                .controls
+                                    input.form-control(name="user[first_name]", type="text" placeholder="First Name", required, data-required-msg='First name is required', autofocus=autofocus, pattern="[A-Za-z0-9]+")
+                        .row
+                            .control-group.col-lg-3
+                                label(for="user[last_name]", class="control-label") Last Name:
+                                .controls    
+                                    input.form-control(name="user[last_name]", type="text", placeholder="Last Name", required, data-required-msg='Last name is required', pattern="[A-Za-z0-9-]+")
+                        .row
+                            .control-group.col-lg-3
+                                label(for="user[username]", class="control-label") Username:
+                                .controls
+                                    input.form-control(name="user[username]", type="text" placeholder="Username", required, data-required-msg='Username is required', pattern="[A-Za-z0-9]+")
+                        .row
+                            .control-group.col-lg-3
+                                label(for="user[email]", class="control-label") Email:
+                                .controls
+                                    input.form-control(name="user[email]", type="email" placeholder="Email address", required, data-required-msg='Email is required')
+                        .row
+                            .control-group.col-lg-3
+                                label(for="user[cellphone]", class="control-label") Cellphone:
+                                .controls
+                                    input.form-control(name="user[cellphone]", type="text" placeholder="Cellphone", required, data-required-msg='Cellphone is required', pattern="[0-9]+")
+                        .row
+                            .control-group.col-lg-3
+                                label(for="user[password]",  class="control-label") Password:
+                                .controls
+                                    input.form-control(name="user[password]", type="password", placeholder="Password", required, data-required-msg='Password is required')
+                        .row
+                            .control-group.col-lg-3
+                                label(for="user[repeat_password]",  class="control-label") Repeat Password:
+                                .controls
+                                    input.form-control(name="user[repeat_password]", type="password", placeholder="Repeat Password", required, data-required-msg='Please repeat password is required')
+                        .row
+                            .control-group.col-lg-3
+                                label(for="user[group]",  class="control-label") User Type:
+                                .controls
+                                    select(class="form-control",name="user[group]")
+                                        option(value="1") Regular
+                                        option(value="2") Company
+                        p &nbsp;
+                        .row
+                            .control-group.col-lg-5
+                                label Fields below not optional if user type is company
+                        .row
+                            .control-group.col-lg-3
+                                label(for="user[company]", class="control-label") Company:
+                                .controls
+                                    input.form-control(name="user[company]", type="text" placeholder="Company", pattern="[A-Za-z0-9-]+")
+                        .row
+                            .control-group.col-lg-3
+                                label(for="user[registration_number]", class="control-label") Registration No:
+                                .controls
+                                    input.form-control(name="user[registration_number]", type="text" placeholder="Registration Number", pattern="[A-Za-z0-9]+")
+                        .row
+                            .control-group.col-lg-3
+                                label(for="user[vat_number]", class="control-label") Vat Number:
+                                .controls
+                                    input.form-control(name="user[vat_number]", type="text" placeholder="Vat Number", pattern="[A-Za-z0-9]+")
+                        .row
+                            .control-group.col-lg-3
+                                label(for="user[address]", class="control-label") Billing Address:
+                                .controls
+                                    input.form-control(name="user[address]", type="text" placeholder="Billing Address")
+                        .row
+                            .control-group.col-lg-3
+                                label(for="user[contact]", class="control-label") Biz Contact:
+                                .controls
+                                    input.form-control(name="user[contact]", type="text" placeholder="Business Contact", pattern="[0-9]+")
+                        .row
+                            .control-group.col-lg-3
+                                .controls
+                                    hr    
+                                    button.btn.btn-m.btn-primary.btn-block(type="submit", style="width: 150px") Sign up
+block footer
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.js")

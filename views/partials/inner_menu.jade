@@ -1,0 +1,45 @@
+.usr-horizontal
+    .usr-nav-primary
+        .container
+            ul.usr-nav.nav.navbar-nav
+                -if(user)
+                    li
+                        a(href="/account/profile" title="Profile") Profile
+                    -if(user.group != 'admin')
+                        li
+                            a(href="/ticket" title="Ticket") Ticket
+                        li
+                            a(href="/account/balance" title="Balance") Balance
+                        li
+                            a(href="/account/transactions" title="Transactions") Transactions
+                        li
+                            a(href="/account/parkingareas" title="Parking Areas") Parking Areas
+                        li
+                            a(href="/account/reports" title="Reports") Report
+                    if(user.group=='company')
+                        li
+                            a(href="/account/users" title="Secondary Users") Manage Users
+                    -if(user.group == 'admin')
+                        li
+                            a(href="/admin/transactions" title="Transations") Transactions
+                        li
+                            a(href="/admin/companies" title="Parking Areas") Companies
+                        li
+                            a(href="/admin/vendors" title="Parking Vendors") Vendors
+                        li
+                            a(href="/admin/reports" title="Reports") Report
+                        li
+                            a(href="/admin/users" title="Secondary Users") Manage Users
+                    li
+                        a(href="/logout" title="Secondary Users") Logout
+                    li
+                        a(style="color: black; font-size: 16px; font-weight: 900;") #{user.group}-User-#{user.username}                        
+                -if(user==null)
+                        li
+                            a(href="/login" title="Secondary Users") Login
+                        li
+                            a(href="/register" title="Secondary Users") Personal Signup
+                        li
+                            a(href="/register_company" title="Secondary Users") Company Signup
+                    
+                    

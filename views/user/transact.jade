@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+    .container
+        .panel.panel-default
+            .panel-heading 
+                h2.form-signin-heading Transaction TRANS#{transaction.id}
+            .panel-body
+                div 
+                    span Name: #{user_v.first_name} #{user_v.last_name}
+                div
+                    table#minimalist
+                        tbody
+                            if ('undefined' !== typeof transaction)
+                                tr
+                                    td Amount
+                                    td R #{transaction.amount.toFixed(2)}
+                                tr
+                                    td Type
+                                    td=transaction.type
+                                tr
+                                    td Date
+                                    td=transaction.date
+                            else
+                                tr
+                                    td(colspan="5", style="text-align: center") No transactions found

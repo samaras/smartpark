@@ -1,0 +1,31 @@
+{
+  "name": "smartpark",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.4.8",
+    "jade": "*",
+    "mysql": "2.0.1",
+    "passport": "*",
+    "passport-local": "*",
+    "nodemailer": "0.6.0",
+    "bcrypt": "*",
+    "redis": "0.10.0",
+    "connect-redis": "1.4.7",
+    "connect-flash": "*",
+    "validator": "*",
+    "passport-http-oauth": "*",
+    "passport-http-bearer": "*",
+    "passport-oauth2-client-password": "*",
+    "oauth2orize": "*",
+    "node-oauth2-server": "*",
+    "winston": "*",
+    "connect": "*",
+    "numeral": "*",
+    "helmet": "*",
+    "bluebird": "*"
+  }
+}

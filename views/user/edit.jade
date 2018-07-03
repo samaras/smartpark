@@ -1,0 +1,47 @@
+extends ../layout
+
+block content
+    .container
+        -if('undefined' !== typeof(error))
+            .alert-danger.alert
+                a.close(href="#") ×
+                p #{error}
+        -if('undefined' !== typeof(message))
+            .alert-info.alert
+                a.close(href="#") ×
+                p #{message}
+        h3.form-signin-heading Edit Profile
+        .panel.panel-default
+            .panel-body
+                div
+                    p
+                        a(href="/account/users/changepassword", class="btn btn-default", style="width: 150px") Change Password
+                div.form-group
+                    form(role="form", method="post", class="form-signin form-horizontal")
+                        input(type='hidden', name='_csrf', value=token)
+                        .row
+                            .control-group.col-lg-3
+                                label(for="user[first_name]", class="control-label") First Name:
+                                .controls
+                                    input.form-control(name="user[first_name]", type="text" placeholder="First Name", required, data-required-msg='First name is required', autofocus=autofocus,  value="#{user.first_name}")
+                        .row
+                            .control-group.col-lg-3
+                                label(for="user[last_name]", class="control-label") Last Name:
+                                .controls    
+                                    input.form-control(name="user[last_name]", type="text", placeholder="Last Name", required, data-required-msg='Last name is required', value="#{user.last_name}")
+                        .row
+                            .control-group.col-lg-3
+                                label(for="user[username]", class="control-label") Username:
+                                .controls
+                                    input.form-control(name="user[username]", type="text" placeholder="Username", required, data-required-msg='Username is required', value="#{user.username}")
+                        .row
+                            .control-group.col-lg-3
+                                label(for="user[email]", class="control-label") Email:
+                                .controls
+                                    input.form-control(name="user[email]", type="email" placeholder="Email address", required, data-required-msg='Email is required', value="#{user.email}")
+                        .row
+                            .control-group.col-lg-3
+                                .controls
+                                    hr    
+                                    button.btn.btn-m.btn-primary.btn-block(type="submit", style="width: 150px") Update Profile
+

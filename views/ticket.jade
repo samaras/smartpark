@@ -1,0 +1,36 @@
+extends layout
+
+block content
+    .container
+        if ('undefined' !== typeof error & error.length > 0)
+            div(class="alert alert-danger")
+                strong
+                    =error
+
+        if ('undefined' !== typeof message & message.length>0)
+            div(class="alert alert-info")
+                strong
+                    =message
+        h3= title
+        .panel.panel-default
+            .panel-body
+                div.form-group
+                    form.form-horizontal(role="form", method="POST")
+                        h2.heading Please enter ticket details
+                        input(type='hidden', name='_csrf', value=token)
+                        .row
+                            .control-group.col-lg-3
+                                label(for="ticket[sequence_number]", class="control-label") Ticket Sequence Number:
+                                input.form-control(type="text" placeholder="Ticket Sequence Number", required="required", autofocus="autofocus", name="ticket[sequence_number]")
+                        .row
+                            .control-group.col-lg-3
+                                label(for="ticket[parking_area]", class="control-label") Parking Area:
+                                br
+                                select(name="ticket[parking_area]", required="required", class="form-control")
+                                    option(value='')  -- Please Select -- 
+                                    if(undefined !== typeof(parking_areas))
+                                    - each parkarea, i in parking_areas
+                                        option(value=parkarea.id,)= parkarea.name
+                        .row
+                            .control-group.col-lg-3
+                                button.btn.btn-m.btn-primary.btn-block(type="submit") Validate Ticket

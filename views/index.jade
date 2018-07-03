@@ -1,0 +1,18 @@
+extends layout
+
+block content
+
+    if('undefined' !== typeof error & error)
+     div(class="alert alert-danger")
+        strong
+            =error
+
+    if('undefined' !== typeof message & message)
+     div(class="alert alert-info")
+        strong  
+            =message
+    h1= title
+    p Welcome to SmartPark
+    p 
+        | This is the SmartPark project. 
+        | The aim is to create hassle free, device independant parking solution.

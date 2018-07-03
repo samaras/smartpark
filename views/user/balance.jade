@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+    .container
+        if ('undefined' !== typeof error)
+            div(class="alert alert-danger")
+                strong
+                    =error
+        h3 Balance
+        .panel.panel-default
+            .panel-body
+                div
+                    p Name: #{user.first_name}  #{user.last_name}
+                    p Balance: R #{account.balance.toFixed(2)}
+                    p 
+                        a(href="/account/addcredit", alt="add credit to account") Add Credit |
+                        a(href="/account/transfer/credit", alt="send credit to someone's account")  Transfer Credit

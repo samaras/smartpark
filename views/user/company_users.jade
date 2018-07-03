@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+    .clear
+    .container
+        .panel.panel-default
+            .panel-heading 
+                h4 Users
+            .panel-body
+                div
+                    a(href="/account/users/create", class="btn btn-default") Create New User
+                div
+                    table#minimalist
+                        thead
+                            th Name
+                            th Date Joined
+                            th Last Login
+                            th Balance
+                        tbody
+                            if ('undefined' !== typeof users)
+                              each val in users
+                                tr
+                                    td
+                                        a(href="/account/transactions/#{val.user_id}") #{val.first_name} #{val.last_name}
+                                    td=val.date_joined
+                                    td=val.last_login
+                                    td R #{val.balance.toFixed(2)}
+                            else
+                                tr
+                                    td(colspan="5", style="text-align: center") "No company users found"

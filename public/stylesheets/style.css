@@ -1,0 +1,139 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+   box-sizing: border-box;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#minimalist {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 12px;
+    width: 90%;
+    text-align: left;
+    border-collapse: collapse;
+    margin: 30px 30px 30px 15px;
+    /*border: 1px solid;*/
+    padding: 15px;
+}
+
+#minimalist tr {
+    border-bottom: 1px solid #2B2B2B;
+}
+
+#minimalist thead tr {
+    border-bottom: 2px solid #2B2B2B;
+}
+
+#minimalist th {
+    font-weight: bold;
+    font-size: 14px;
+    border-bottom: 1px dotted #000;
+    color: #000;
+    padding: 10px 4px;
+}
+
+#minimalist td {
+    color: #000;
+    padding: 5px;
+    vertical-align: middle;
+}
+
+.usr-horizontal {
+    background: none repeat scroll 0 0 #F5F5F5;
+    border-bottom: 1px solid #CCCCCC;
+    border-top: 1px solid #CCCCCC;
+    margin: 0;
+    padding: 0 10px;
+}
+.usr-nav-primary {
+    clear: both;
+    content: " ";
+    display: table;
+}
+
+
+/* Charts and d3.js css */
+.chart div, #chart div {
+    font: 10px sans-serif;
+    background-color: steelblue;
+    text-align: right;
+    padding: 3px;
+    margin: 1px;
+    color: white;
+}
+
+nav.top-header, nav.top-header a {
+    background-color: #2B2B2B;
+    color: #FFF;
+}
+
+nav.top-header a:hover {
+    color: #428BCA;
+}
+
+footer {
+    background-color: #373633; 
+    height: 50px; 
+    padding: 10px;
+    color: #FFF;
+}
+
+/* HTML5 tags */
+header, section, footer,
+aside, nav, article, figure {
+    display: block;
+}
+
+/* @media Mobile specific syles */
+
+@media handheld {
+
+
+}
+
+/* @media Screen only styles */
+
+@media screen {
+    .btn {
+        margin: 5px;
+    }
+}
+
+.accordion {
+    margin-bottom: 20px;
+}
+
+.accordion-group {
+    margin-bottom: 2px;
+    border: 1px solid #e5e5e5;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.accordion-heading {
+    border-bottom: 0;
+}
+
+.accordion-heading .accordion-toggle {
+    display: block;
+    padding: 8px 15px;
+}
+
+.accordion-toggle {
+    cursor: pointer;
+}
+
+// Admin actions
+
+.delact, .deact {
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+.delact {  }
+
+.deact {  }

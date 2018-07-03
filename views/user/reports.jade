@@ -1,0 +1,49 @@
+extends ../layout
+
+style
+    .chart { float: left; width: 400px; height: 400px; background: #eee; margin: 0 20px 0 0; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+
+block content 
+    .clear
+    .container
+        h2.form-signin-heading Reports
+        div(class="accordion panel-group" id="accordion2")
+            .accordion-group.panel-default
+                .accordion-heading.panel-heading
+                    h4.panel-title
+                        a(class="accordion-toggle panel-collapse" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne") Parking Areas Visited
+                div(id="collapseOne" class="accordion-body collapse in panel-collapse")
+                    .accordion-inner.panel-body
+                        figure(class="chart", style="width: 400px; height: 300px;", id="chart-1")
+
+           .accordion-group.panel-default
+                .accordion-heading.panel-heading
+                    h4.panel-title
+                        a(class="accordion-toggle panel-collapse" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo") My Cost per Parking Area
+                div(id="collapseTwo" class="accordion-body collapse")
+                    .accordion-inner.panel-body
+                        figure(class="chart2", style="width: 400px; height: 300px;", id="chart-2")
+
+            .accordion-group.panel-default
+                .accordion-heading.panel-heading
+                    h4.panel-title
+                        a(class="accordion-toggle panel-collapse" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree") Time spent in Parking Area
+                div(id="collapseThree" class="accordion-body collapse panel-collapse")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+                    .accordion-inner.panel-body
+                        figure(class="chart3", style="width: 400px; height: 300px;", id="chart-3")
+
+            .accordion-group.panel-default
+                .accordion-heading.panel-heading
+                    h4.panel-title
+                        a(class="accordion-toggle panel-collapse" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour") My Cost by Days
+                div(id="collapseFour" class="accordion-body collapse panel-collapse")
+                    .accordion-inner.panel-body
+                        figure(class="chart4", style="width: 400px; height: 300px;", id="chart-4")
+        
+block footer
+    link(rel='stylesheet', href='../stylesheets/bootstrap.css')
+    link(rel='stylesheet', href='../javascripts/xCharts/xcharts.min.css')
+    script(src="http://d3js.org/d3.v3.min.js", charset="utf-8")
+    script(src="../javascripts/xCharts/xcharts.min.js")
+    script(src="../javascripts/script.js")
+            

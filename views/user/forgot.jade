@@ -1,0 +1,35 @@
+extends ../layout
+    
+block content
+    .clearfix
+    .container
+        .panel.panel-default
+            .panel-heading 
+                h4 Forgot your password
+                    span(class="glyphicon glyphicon-question-sign")
+            .panel-body
+
+                if('undefined' !== typeof message) 
+                    div(class="alert alert-info")
+                        strong
+                            =message 
+
+                if('undefined' !== typeof error) 
+                    div(class="alert alert-info")
+                        strong
+                            =error
+
+                form.form-horizontal(role="form", method="POST")
+                    input(type='hidden', name='_csrf', value=token)
+                    .row
+                        .control-group.col-lg-3
+                            label(for="user[username]", class="control-label") Username:
+                            input.form-control(type="text" placeholder="Username", required="required", autofocus="autofocus", name="username")
+                    .row
+                        .control-group.col-lg-3
+                            label(for="user[email]", class="control-label") Email:
+                            input.form-control(type="email", placeholder="Email", required="required", name="email")
+                    br
+                    .row
+                        .control-group.col-lg-3
+                            button.btn.btn-default.btn-primary.btn-block(type="submit") Reset

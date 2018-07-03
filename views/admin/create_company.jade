@@ -1,0 +1,39 @@
+extends ../layout
+
+block content
+    .container
+        if ('undefined' !== typeof error)
+            div(class="alert alert-danger")
+                strong
+                    =error
+        div.panel.panel-default
+            div.panel-heading
+                panel-title Create New Company
+            div.panel-body
+                div.form-group
+                    form(role="form", method="post", class="form-signup form-horizontal")
+                        input(type='hidden', name='_csrf', value=token)
+                        .row
+                            .control-group.col-lg-3
+                                label(for="company_name", class="control-label") Company Name:
+                                .controls
+                                    input.form-control(name="company_name", type="text" placeholder="Company Name", required, data-required-msg='Company name is required', autofocus=autofocus, value="#{company.company}")
+                        .row
+                            .control-group.col-lg-3
+                                label(for="registration_no", class="control-label") Registration Number:
+                                .controls    
+                                    input.form-control(name="registration_no", type="text", placeholder="Registrration Number", required, data-required-msg='Registration number is required', value="#{company.registration_number}")
+                        .row
+                            .control-group.col-lg-3
+                                label(for="company_admin",  class="control-label") Company Admin:
+                                .controls
+                                    select(class="form-control",name="company_admin")
+                                        option(value="") -----
+                                        if('undefined' !== typeof users_list)
+                                            each users in users_list
+                                                option(value="#{users.id}") #{users.first_name} #{users.last_name}
+                        .row
+                            .control-group.col-lg-3
+                                .controls
+                                    hr    
+                                    button.btn.btn-m.btn-primary.btn-block(type="submit", style="width: 150px") Save Company

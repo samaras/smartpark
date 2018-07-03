@@ -1,0 +1,36 @@
+extends ../layout
+
+block content
+    .clear
+    .container
+        if ('undefined' !== typeof error)
+         div#flash(class="alert in alert-block fade alert-error")
+            strong
+                =errors
+        if ('undefined' !== typeof message)
+         div#flash(class="alert in alert-block fade alert-warning")
+            strong
+                =errors
+        form(role="form", method="post", class="form-signin form-horizontal")
+            h2.form-signin-heading Transfer Credit
+            input(type='hidden', name='_csrf', value=token)
+            .row
+                .control-group.col-lg-3
+                    label(for="credit[username]", class="control-label") Username:
+                    .controls
+                        input.form-control(name="credit[username]", type="text" placeholder="Username", required, data-required-msg='Username is required')
+            .row
+                .control-group.col-lg-3
+                    label(for="credit[email]", class="control-label") Email:
+                    .controls
+                        input.form-control(name="credit[email]", type="email" placeholder="Email address", required, data-required-msg='Email is required')
+            .row
+                .control-group.col-lg-3
+                    label(for="credit[amount]",  class="control-label") Amount:
+                    .controls
+                        input.form-control(name="credit[amount]", type="text", placeholder="Amount", required, data-required-msg='Amount is required', placeholder="0.00")
+            .row
+                .control-group.col-lg-3
+                    .controls
+                        hr    
+                        button.btn.btn-m.btn-primary.btn-block(type="submit", style="width: 150px") Transfer Credit

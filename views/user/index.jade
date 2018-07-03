@@ -1,0 +1,36 @@
+extends ../layout
+
+block content
+    .container
+        -if(error)
+            .alert-danger.alert
+                a.close(href="#") ×
+                p #{error}
+        -if(message)
+            .alert-danger.alert
+                a.close(href="#") ×
+                p #{message}
+        h3 My Profile
+        div.panel.panel-default
+            div.panel-body
+                dl.dl-horizontal(style="font: 13px")
+                    dt Username
+                    dd 
+                        =user['username']
+
+                    dt First Name
+                    dd 
+                        =user['first_name']
+
+                    dt Last Name
+                    dd 
+                        =user['last_name']
+
+                    dt Email
+                    dd 
+                        =user['email'] 
+
+                    dt Last Login
+                    dd 
+                        =user['last_login']
+                a(href="users/edit/", class="btn btn-default", style="width: 150px") Edit Profile
